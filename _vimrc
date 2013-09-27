@@ -17,7 +17,7 @@ let g:solarized_termcolors = 256
 let g:solarized_contrast   = "high"
 let g:solarized_visibility = "high"
 "}
-
+""
 "tab setting {
 set tabstop=4
 set shiftwidth=4
@@ -30,16 +30,21 @@ set scrolloff=3
 set fenc=utf-8
 set autoindent
 set hidden
-"set encoding=utf-8
+set encoding=utf-8
 
 "set laststatus=2
-"set number                                    "显示行号
-"set undofile                                  "无限undo
+set number                                    "显示行号
+""set undofile                                  "无限undo
 "set nowrap                                    "禁止自动换行
-"autocmd! bufwritepost _vimrc source %         "自动载入配置文件不需要重启
+autocmd! bufwritepost _vimrc source %         "自动载入配置文件不需要重启
+
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowb
+set noswapfile
 
 "相对行号 要想相对行号起作用要放在显示行号后面
-set relativenumber
+"set relativenumber
 "自动换行
 set wrap
 "GUI界面里的字体，默认有抗锯齿
@@ -147,7 +152,7 @@ Bundle 'AutoClose'
 Bundle 'ZenCoding.vim'
 Bundle 'matchit.zip'
 Bundle 'Tabular'
-Bundle 'Valloric/YouCompleteMe'
+""Bundle 'Valloric/YouCompleteMe'
 "Bundle 'spiiph/vim-space'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'trailing-whitespace'
@@ -166,6 +171,7 @@ let g:EasyMotion_leader_key = '<Leader><Leader>'
 "Bundle 'FencView.vim'
 "let g:fencview_autodetect=1
 
+Bundle 'joonty/vim-xdebug.git'
 Bundle 'The-NERD-tree'
 "设置相对行号
 nmap <leader>nt :NERDTree<cr>:set rnu<cr>
@@ -191,3 +197,5 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 "放置在Bundle的设置后，防止意外BUG
 filetype plugin indent on
 syntax on
+set tags=~/tags
+""source ~/.vim_runtime/my_configs.vim
