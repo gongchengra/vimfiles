@@ -149,7 +149,9 @@ Bundle 'gmarik/vundle'
 
 Bundle 'ctrlp.vim'
 Bundle 'AutoClose'
-Bundle 'ZenCoding.vim'
+Bundle 'Emmet.vim'
+let g:user_emmet_expandabbr_key = '<c-e>' 
+let g:use_emmet_complete_tag = 1
 Bundle 'matchit.zip'
 Bundle 'Tabular'
 ""Bundle 'Valloric/YouCompleteMe'
