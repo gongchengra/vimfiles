@@ -169,6 +169,7 @@ nnoremap <leader>_ff :call g:Jsbeautify()<CR>
 Bundle 'EasyMotion'
 let g:EasyMotion_leader_key = '<Leader><Leader>'
 
+Bundle 'EnhCommentify.vim'
 "Fencview的初始设置
 "Bundle 'FencView.vim'
 "let g:fencview_autodetect=1
