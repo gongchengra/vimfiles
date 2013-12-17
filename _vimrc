@@ -197,6 +197,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 Bundle 'xml.vim'
 let g:xml_syntax_folding = 1
+
+Bundle 'sessions.vim'
+
 "}
 
 "放置在Bundle的设置后，防止意外BUG
