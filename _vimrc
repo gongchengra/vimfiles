@@ -123,6 +123,10 @@ nmap <leader>fc :set ft=css<CR>
 nmap <leader>fx :set ft=xml<CR>
 nmap <leader>fm :set ft=mako<CR>
 
+"my settings"
+nmap <S-Space> <PageUp>
+nmap <Space> <PageDown>
+
 "设置隐藏gvim的菜单和工具栏 F2切换
 set guioptions-=m
 set guioptions-=T
@@ -199,6 +203,8 @@ Bundle 'xml.vim'
 let g:xml_syntax_folding = 1
 
 Bundle 'sessions.vim'
+""Bundle 'SessionMgr'
+""let g:SessionMgr_AutoManage = 0
 
 "}
 
