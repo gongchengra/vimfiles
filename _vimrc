@@ -202,10 +202,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 Bundle 'xml.vim'
 let g:xml_syntax_folding = 1
 
-Bundle 'sessions.vim'
-""Bundle 'SessionMgr'
+""Bundle 'sessions.vim'
+Bundle 'SessionMgr'
 ""let g:SessionMgr_AutoManage = 0
 
+""Bundle 'pathogen.vim'
+Bundle 'Syntastic'
 "}
 
 "放置在Bundle的设置后，防止意外BUG
