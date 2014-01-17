@@ -66,6 +66,12 @@ set numberwidth=4          "行号栏的宽度
 
 set whichwrap=b,s,<,>,[,]  "让退格，空格，上下箭头遇到行首行尾时自动移到下一行（包括insert模式）
 
+"set encryption method to blowfish
+set cm=blowfish
+
+ca tn tabnew
+ca tc tabc
+
 "插入模式下移动
 inoremap <c-j> <down>
 inoremap <c-k> <up>
@@ -84,6 +90,11 @@ vnoremap <F1> <ESC>
 "修改vim的正则表达
 nnoremap / /\v
 vnoremap / /\v
+
+""nnoremap bn :bn<cr>
+""nnoremap bp :bp<cr>
+""nnoremap bd :bd<cr>
+""nnoremap ls :ls<cr>
 
 "使用tab键来代替%进行匹配跳转
 nnoremap <tab> %
@@ -167,8 +178,9 @@ Bundle 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 
-Bundle '_jsbeautify'
-nnoremap <leader>_ff :call g:Jsbeautify()<CR>
+Bundle 'jsbeautify'
+""Bundle 'vim-jsbeautify'
+""nnoremap <leader>ff :call g:Jsbeautify()<CR>
 
 Bundle 'EasyMotion'
 let g:EasyMotion_leader_key = '<Leader><Leader>'
@@ -193,6 +205,9 @@ Bundle 'The-NERD-Commenter'
 let NERDShutUp=1
 "支持单行和多行的选择，//格式
 map <c-h> ,c<space>
+
+Bundle 'jistr/vim-nerdtree-tabs'
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 Bundle 'UltiSnips'
 let g:UltiSnipsExpandTrigger="<c-j>"
