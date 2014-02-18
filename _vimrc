@@ -169,7 +169,7 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 let g:use_emmet_complete_tag = 1
 Bundle 'matchit.zip'
 Bundle 'Tabular'
-""Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 "Bundle 'spiiph/vim-space'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'trailing-whitespace'
