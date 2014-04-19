@@ -10,7 +10,22 @@ set cursorcolumn             "光标垂直高亮
 set ttyfast
 set ruler
 set backspace=indent,eol,start
-colorscheme solarized
+colorscheme desert
+"colorscheme solarized
+"colorscheme molokai
+"colorscheme desert
+"colorscheme wombat256
+"colorscheme grb256
+"colorscheme distinguished
+"colorscheme github
+"colorscheme jellybeans
+"colorscheme railscasts
+"colorscheme twilight
+"colorscheme vividchalk
+"colorscheme candy
+"let mycolors = split(globpath(&rtp,"**/colors/*.vim"),"\n")
+"exe 'so ' . mycolors[localtime() % len(mycolors)]
+"unlet mycolors
 
 let g:solarized_termtrans  = 1
 let g:solarized_termcolors = 256
@@ -69,8 +84,23 @@ set whichwrap=b,s,<,>,[,]  "让退格，空格，上下箭头遇到行首行尾�
 "set encryption method to blowfish
 set cm=blowfish
 
-ca tn tabnew
-ca tc tabc
+"tabpage settings
+ca e tabe
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+nnoremap tc  :tabnew<CR>
+"nnoremap <C-S-tab> :tabprevious<CR>
+"nnoremap <C-tab>   :tabnext<CR>
+"nnoremap <C-t>     :tabnew<CR>
+"inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+"inoremap <C-tab>   <Esc>:tabnext<CR>i
+"inoremap <C-t>     <Esc>:tabnew<CR>
 
 "插入模式下移动
 inoremap <c-j> <down>
@@ -146,12 +176,12 @@ set go-=r
 set go-=L
 
 map <silent> <F2> :if &guioptions =~# 'T' <Bar>
-        \set guioptions-=T <Bar>
-        \set guioptions-=m <bar>
-    \else <Bar>
-        \set guioptions+=T <Bar>
-        \set guioptions+=m <Bar>
-    \endif<CR>
+            \set guioptions-=T <Bar>
+            \set guioptions-=m <bar>
+            \else <Bar>
+            \set guioptions+=T <Bar>
+            \set guioptions+=m <Bar>
+            \endif<CR>
 
 
 "Vundle Settings {
