@@ -141,8 +141,8 @@ nnoremap <leader>wc <c-w>c
 nnoremap <leader>ww <c-w>w
 
 "tab切换
-nnoremap <leader>t gt
-nnoremap <leader>r gT
+"nnoremap <leader>t gt
+"nnoremap <leader>r gT
 "使用<leader>空格来取消搜索高亮
 nnoremap <leader><space> :noh<cr>
 
@@ -239,10 +239,10 @@ map <c-h> ,c<space>
 Bundle 'jistr/vim-nerdtree-tabs'
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
-Bundle 'UltiSnips'
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+"Bundle 'UltiSnips'
+"let g:UltiSnipsExpandTrigger="<c-j>"
+"let g:UltiSnipsJumpForwardTrigger="<c-j>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 Bundle 'xml.vim'
 let g:xml_syntax_folding = 1
@@ -254,6 +254,9 @@ Bundle 'SessionMgr'
 ""Bundle 'pathogen.vim'
 Bundle 'Syntastic'
 Bundle 'LargeFile'
+Bundle 'matrix.vim'
+Bundle 'sudoku_game'
+Bundle 'TeTrIs.vim'
 "}
 
 "放置在Bundle的设置后，防止意外BUG
