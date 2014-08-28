@@ -199,7 +199,8 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 let g:use_emmet_complete_tag = 1
 Bundle 'matchit.zip'
 Bundle 'Tabular'
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 "Bundle 'spiiph/vim-space'
 "Bundle 'terryma/vim-multiple-cursors'
 Bundle 'trailing-whitespace'
@@ -255,7 +256,7 @@ Bundle 'SessionMgr'
 Bundle 'Syntastic'
 Bundle 'LargeFile'
 Bundle 'matrix.vim'
-Bundle 'sudoku_game'
+"Bundle 'sudoku_game'
 Bundle 'TeTrIs.vim'
 "}
 
@@ -266,5 +267,5 @@ syntax on
 "set ttyfast " u got a fast terminal
 "set ttyscroll=3
 "set lazyredraw " to avoid scrolling problems
-set tags=~/tags
+"set tags=~/tags
 ""source ~/.vim_runtime/my_configs.vim
