@@ -269,3 +269,9 @@ syntax on
 "set lazyredraw " to avoid scrolling problems
 "set tags=~/tags
 ""source ~/.vim_runtime/my_configs.vim
+autocmd BufNewFile *.c 0r ~/.vim/skeleton.c
+autocmd bufnewfile *.c exe "1," . 10 . "g/File Name :.*/s//File Name : ".expand("%")
+autocmd bufnewfile *.c exe "1," . 10 . "g/Creation Date :.*/s//Creation Date : " .strftime("%Y-%m-%d")
+autocmd Bufwritepre,filewritepre *.c execute "normal ma"
+autocmd Bufwritepre,filewritepre *.c exe "1," . 10 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
+autocmd bufwritepost,filewritepost *.c execute "normal `a"
