@@ -255,9 +255,10 @@ Bundle 'SessionMgr'
 ""Bundle 'pathogen.vim'
 Bundle 'Syntastic'
 Bundle 'LargeFile'
-Bundle 'matrix.vim'
+"Bundle 'matrix.vim'
 "Bundle 'sudoku_game'
 Bundle 'TeTrIs.vim'
+"Bundle 'plasticboy/vim-markdown'
 "}
 
 "放置在Bundle的设置后，防止意外BUG
@@ -267,7 +268,7 @@ syntax on
 "set ttyfast " u got a fast terminal
 "set ttyscroll=3
 "set lazyredraw " to avoid scrolling problems
-"set tags=~/tags
+set tags=./tags,tags
 ""source ~/.vim_runtime/my_configs.vim
 autocmd BufNewFile *.c 0r ~/.vim/skeleton.c
 autocmd bufnewfile *.c exe "1," . 10 . "g/File Name :.*/s//File Name : ".expand("%")
