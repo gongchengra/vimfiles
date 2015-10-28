@@ -200,6 +200,7 @@ let g:use_emmet_complete_tag = 1
 Bundle 'matchit.zip'
 Bundle 'Tabular'
 Bundle 'Valloric/YouCompleteMe'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 "Bundle 'spiiph/vim-space'
 "Bundle 'terryma/vim-multiple-cursors'
@@ -221,7 +222,7 @@ Bundle 'EnhCommentify.vim'
 "Bundle 'FencView.vim'
 "let g:fencview_autodetect=1
 
-Bundle 'joonty/vim-xdebug.git'
+"Bundle 'joonty/vim-xdebug.git'
 Bundle 'The-NERD-tree'
 "设置相对行号
 nmap <leader>nt :NERDTree<cr>:set rnu<cr>
@@ -257,8 +258,33 @@ Bundle 'Syntastic'
 Bundle 'LargeFile'
 "Bundle 'matrix.vim'
 "Bundle 'sudoku_game'
-Bundle 'TeTrIs.vim'
+"Bundle 'TeTrIs.vim'
 "Bundle 'plasticboy/vim-markdown'
+Bundle "vim-scripts/Align"
+Bundle "vim-scripts/SQLUtilities"
+Bundle "vim-scripts/dbext.vim"
+let g:dbext_default_profile = 'mySQL'
+let g:dbext_default_profile_mySQL = 'type=MYSQL:user=memebox:passwd=meme7980:dbname=memebox:host=memebox-slave.cmcopvs0wxn0.rds.cn-north-1.amazonaws.com.cn'
+Bundle "b4winckler/vim-objc"
+let c_no_curly_error = 1
+Bundle 'joonty/vdebug.git'
+let g:vdebug_options= {
+            \    "port" : 9999,
+            \    "server" : 'localhost',
+            \    "timeout" : 20,
+            \    "on_close" : 'detach',
+            \    "break_on_open" : 1,
+            \    "ide_key" : '',
+            \    "path_maps" : {},
+            \    "debug_window_level" : 0,
+            \    "debug_file_level" : 0,
+            \    "debug_file" : "",
+            \    "watch_window_style" : 'expanded',
+            \    "marker_default" : '⬦',
+            \    "marker_closed_tree" : '▸',
+            \    "marker_open_tree" : '▾'
+            \}
+
 "}
 
 "放置在Bundle的设置后，防止意外BUG
@@ -276,3 +302,5 @@ autocmd bufnewfile *.c exe "1," . 10 . "g/Creation Date :.*/s//Creation Date : "
 autocmd Bufwritepre,filewritepre *.c execute "normal ma"
 autocmd Bufwritepre,filewritepre *.c exe "1," . 10 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
 autocmd bufwritepost,filewritepost *.c execute "normal `a"
+
+autocmd Bufread,BufNewFile *.m setfiletype=objc
