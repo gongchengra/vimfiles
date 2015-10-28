@@ -43,6 +43,7 @@ set expandtab
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set scrolloff=3
 set fenc=utf-8
+"set spell spellang=en_us
 set autoindent
 set hidden
 set encoding=utf-8
@@ -129,7 +130,9 @@ vnoremap / /\v
 "使用tab键来代替%进行匹配跳转
 nnoremap <tab> %
 vnoremap <tab> %
-
+"spell setting
+nnoremap <leader>s :set spell!
+nnoremap <leader>f 1z=
 "折叠html标签 ,fold tag
 nnoremap <leader>ft vatzf
 "使用,v来选择刚刚复制的段落，这样可以用来缩进
@@ -152,7 +155,7 @@ nmap <leader>ch ^xx
 "切换到当前目录
 nmap <leader>q :execute "cd" expand("%:h")<CR>
 "搜索替换
-nmap <leader>s :,s///c
+"nmap <leader>s :,s///c
 
 "取消粘贴缩进
 nmap <leader>p :set paste<CR>
@@ -264,7 +267,8 @@ Bundle "vim-scripts/Align"
 Bundle "vim-scripts/SQLUtilities"
 Bundle "vim-scripts/dbext.vim"
 let g:dbext_default_profile = 'mySQL'
-let g:dbext_default_profile_mySQL = 'type=MYSQL:user=memebox:passwd=meme7980:dbname=memebox:host=memebox-slave.cmcopvs0wxn0.rds.cn-north-1.amazonaws.com.cn'
+Bundle 'danro/rename.vim'
+Bundle 'tpope/vim-surround'
 Bundle "b4winckler/vim-objc"
 let c_no_curly_error = 1
 Bundle 'joonty/vdebug.git'
