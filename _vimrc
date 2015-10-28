@@ -43,6 +43,7 @@ set expandtab
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set scrolloff=3
 set fenc=utf-8
+"set spell spellang=en_us
 set autoindent
 set hidden
 set encoding=utf-8
@@ -129,7 +130,9 @@ vnoremap / /\v
 "使用tab键来代替%进行匹配跳转
 nnoremap <tab> %
 vnoremap <tab> %
-
+"spell setting
+nnoremap <leader>s :set spell!
+nnoremap <leader>f 1z=
 "折叠html标签 ,fold tag
 nnoremap <leader>ft vatzf
 "使用,v来选择刚刚复制的段落，这样可以用来缩进
@@ -152,7 +155,7 @@ nmap <leader>ch ^xx
 "切换到当前目录
 nmap <leader>q :execute "cd" expand("%:h")<CR>
 "搜索替换
-nmap <leader>s :,s///c
+"nmap <leader>s :,s///c
 
 "取消粘贴缩进
 nmap <leader>p :set paste<CR>
@@ -200,6 +203,7 @@ let g:use_emmet_complete_tag = 1
 Bundle 'matchit.zip'
 Bundle 'Tabular'
 Bundle 'Valloric/YouCompleteMe'
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 "Bundle 'spiiph/vim-space'
 "Bundle 'terryma/vim-multiple-cursors'
@@ -221,7 +225,7 @@ Bundle 'EnhCommentify.vim'
 "Bundle 'FencView.vim'
 "let g:fencview_autodetect=1
 
-Bundle 'joonty/vim-xdebug.git'
+"Bundle 'joonty/vim-xdebug.git'
 Bundle 'The-NERD-tree'
 "设置相对行号
 nmap <leader>nt :NERDTree<cr>:set rnu<cr>
@@ -257,8 +261,30 @@ Bundle 'Syntastic'
 Bundle 'LargeFile'
 "Bundle 'matrix.vim'
 "Bundle 'sudoku_game'
-Bundle 'TeTrIs.vim'
+"Bundle 'TeTrIs.vim'
 "Bundle 'plasticboy/vim-markdown'
+Bundle 'danro/rename.vim'
+Bundle 'tpope/vim-surround'
+Bundle "b4winckler/vim-objc"
+let c_no_curly_error = 1
+Bundle 'joonty/vdebug.git'
+let g:vdebug_options= {
+            \    "port" : 9999,
+            \    "server" : 'localhost',
+            \    "timeout" : 20,
+            \    "on_close" : 'detach',
+            \    "break_on_open" : 1,
+            \    "ide_key" : '',
+            \    "path_maps" : {},
+            \    "debug_window_level" : 0,
+            \    "debug_file_level" : 0,
+            \    "debug_file" : "",
+            \    "watch_window_style" : 'expanded',
+            \    "marker_default" : '⬦',
+            \    "marker_closed_tree" : '▸',
+            \    "marker_open_tree" : '▾'
+            \}
+
 "}
 
 "放置在Bundle的设置后，防止意外BUG
@@ -276,3 +302,5 @@ autocmd bufnewfile *.c exe "1," . 10 . "g/Creation Date :.*/s//Creation Date : "
 autocmd Bufwritepre,filewritepre *.c execute "normal ma"
 autocmd Bufwritepre,filewritepre *.c exe "1," . 10 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
 autocmd bufwritepost,filewritepost *.c execute "normal `a"
+
+autocmd Bufread,BufNewFile *.m setfiletype=objc
