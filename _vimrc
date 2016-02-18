@@ -271,6 +271,9 @@ Bundle 'danro/rename.vim'
 Bundle 'tpope/vim-surround'
 Bundle "b4winckler/vim-objc"
 let c_no_curly_error = 1
+Bundle "vim-json-bundle"
+Bundle 'neilagabriel/vim-geeknote'
+let g:GeeknoteFormat="markdown"
 Bundle 'joonty/vdebug.git'
 let g:vdebug_options= {
             \    "port" : 9999,
@@ -306,5 +309,4 @@ autocmd bufnewfile *.c exe "1," . 10 . "g/Creation Date :.*/s//Creation Date : "
 autocmd Bufwritepre,filewritepre *.c execute "normal ma"
 autocmd Bufwritepre,filewritepre *.c exe "1," . 10 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
 autocmd bufwritepost,filewritepost *.c execute "normal `a"
-
 autocmd Bufread,BufNewFile *.m setfiletype=objc
