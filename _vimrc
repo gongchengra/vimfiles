@@ -9,7 +9,12 @@ set cursorline               "设置光标高亮显示
 set cursorcolumn             "光标垂直高亮
 set ttyfast
 set ruler
+" 配色方案
 set backspace=indent,eol,start
+"set background=dark
+"colorscheme solarized
+"colorscheme molokai
+"colorscheme phd"
 colorscheme desert
 "colorscheme solarized
 "colorscheme molokai
@@ -47,12 +52,15 @@ set fenc=utf-8
 set autoindent
 set hidden
 set encoding=utf-8
+set autoread
+au CursorHold * checktime
 
 "set laststatus=2
 set number                                    "显示行号
 ""set undofile                                  "无限undo
 "set nowrap                                    "禁止自动换行
 autocmd! bufwritepost _vimrc source %         "自动载入配置文件不需要重启
+"autocmd BufWritePost $MYVIMRC source $MYVIMRC "自动载入配置文件不需要重启
 
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
@@ -114,6 +122,7 @@ inoremap <c-h> <left>
 let mapleader=","
 imap jj <esc>
 
+inoremap <C-R> <C-G>u<C-R>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
@@ -122,16 +131,16 @@ vnoremap <F1> <ESC>
 nnoremap / /\v
 vnoremap / /\v
 
-""nnoremap bn :bn<cr>
-""nnoremap bp :bp<cr>
-""nnoremap bd :bd<cr>
-""nnoremap ls :ls<cr>
+nnoremap bn :bn<cr>
+nnoremap bp :bp<cr>
+nnoremap bd :bd<cr>
+nnoremap ls :ls<cr>
 
 "使用tab键来代替%进行匹配跳转
 nnoremap <tab> %
 vnoremap <tab> %
 "spell setting
-nnoremap <leader>s :set spell!
+"nnoremap <leader>s :set spell!
 nnoremap <leader>f 1z=
 "折叠html标签 ,fold tag
 nnoremap <leader>ft vatzf
@@ -153,7 +162,7 @@ nnoremap <leader><space> :noh<cr>
 nmap <leader>h I//jj
 nmap <leader>ch ^xx
 "切换到当前目录
-nmap <leader>q :execute "cd" expand("%:h")<CR>
+nmap <leader>cd :execute "cd" expand("%:h")<CR>:pwd<CR>
 "搜索替换
 "nmap <leader>s :,s///c
 
@@ -171,6 +180,10 @@ nmap <leader>fm :set ft=mako<CR>
 nmap <S-Space> <PageUp>
 nmap <Space> <PageDown>
 
+nmap <leader>be :exec '!'.getline('.')<CR>
+nmap <leader>ds :g/^\s*\n\s*$/d<CR>
+nmap <leader>dj :g/jpg/d<CR>
+cmap w!! w !sudo tee > /dev/null %
 "设置隐藏gvim的菜单和工具栏 F2切换
 set guioptions-=m
 set guioptions-=T
@@ -186,47 +199,42 @@ map <silent> <F2> :if &guioptions =~# 'T' <Bar>
             \set guioptions+=m <Bar>
             \endif<CR>
 
-
 "Vundle Settings {
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-Bundle 'ctrlp.vim'
-Bundle 'AutoClose'
-Bundle 'Emmet.vim'
+Plugin 'ctrlp.vim'
+let g:ctrlp_switch_buffer = 'Et'
+let g:ctrlp_working_path_mode = 'ra'
+Plugin 'AutoClose'
+Plugin 'Emmet.vim'
 let g:user_emmet_expandabbr_key = '<c-e>'
 let g:use_emmet_complete_tag = 1
-Bundle 'matchit.zip'
-Bundle 'Tabular'
-Bundle 'Valloric/YouCompleteMe'
-"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+Plugin 'Valloric/YouCompleteMe'
+let g:ycm_complete_in_comments = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-"Bundle 'spiiph/vim-space'
-"Bundle 'terryma/vim-multiple-cursors'
-Bundle 'trailing-whitespace'
-
-Bundle 'nathanaelkane/vim-indent-guides'
+Plugin 'trailing-whitespace'
+"displaying indent levels
+Plugin 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
-
-Bundle 'jsbeautify'
-""Bundle 'vim-jsbeautify'
-""nnoremap <leader>ff :call g:Jsbeautify()<CR>
-
-Bundle 'EasyMotion'
+Plugin 'EasyMotion'
 let g:EasyMotion_leader_key = '<Leader><Leader>'
-
-Bundle 'EnhCommentify.vim'
-"Fencview的初始设置
-"Bundle 'FencView.vim'
-"let g:fencview_autodetect=1
-
-"Bundle 'joonty/vim-xdebug.git'
-Bundle 'The-NERD-tree'
+"let g:EasyMotion_keys = '1234567890'
+let g:EasyMotion_keys = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+let g:EasyMotion_do_shade = 0
+Plugin 'EnhCommentify.vim'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'joonty/vim-xdebug.git'
+Plugin 'The-NERD-tree'
 "设置相对行号
 nmap <leader>nt :NERDTree<cr>:set rnu<cr>
 let NERDTreeShowBookmarks=1
@@ -235,74 +243,57 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.$','\~$']
 let NERDTreeShowLineNumbers=1
 let NERDTreeWinPos=1
-
-Bundle 'The-NERD-Commenter'
-let NERDShutUp=1
-"支持单行和多行的选择，//格式
-map <c-h> ,c<space>
-
-Bundle 'jistr/vim-nerdtree-tabs'
+Plugin 'jistr/vim-nerdtree-tabs'
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
-
-"Bundle 'UltiSnips'
-"let g:UltiSnipsExpandTrigger="<c-j>"
-"let g:UltiSnipsJumpForwardTrigger="<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-Bundle 'xml.vim'
+Plugin 'xml.vim'
 let g:xml_syntax_folding = 1
+Plugin 'SessionMgr'
+"let g:SessionMgr_AutoManage = 0
+let g:SessionMgr_AutoManage = 1
+let g:SessionMgr_DefaultName = "mysession"
+let g:SessionMgr_Dir = "/tmp"
 
-""Bundle 'sessions.vim'
-Bundle 'SessionMgr'
-""let g:SessionMgr_AutoManage = 0
+Plugin 'LargeFile'
+Plugin 'vim-scripts/dbext.vim'
+Plugin 'danro/rename.vim'
+"Plugin 'joonty/vdebug.git'
+"let g:vdebug_options= {
+"            \    "port" : 9999,
+"            \    "server" : 'localhost',
+"            \    "timeout" : 20,
+"            \    "on_close" : 'detach',
+"            \    "break_on_open" : 1,
+"            \    "ide_key" : '',
+"            \    "path_maps" : {},
+"            \    "debug_window_level" : 0,
+"            \    "debug_file_level" : 0,
+"            \    "debug_file" : "",
+"            \    "watch_window_style" : 'expanded',
+"            \    "marker_default" : '⬦',
+"            \    "marker_closed_tree" : '▸',
+"            \    "marker_open_tree" : '▾'
+"            \}
 
-""Bundle 'pathogen.vim'
-Bundle 'Syntastic'
-Bundle 'LargeFile'
-"Bundle 'matrix.vim'
-"Bundle 'sudoku_game'
-"Bundle 'TeTrIs.vim'
-"Bundle 'plasticboy/vim-markdown'
-Bundle "vim-scripts/Align"
-Bundle "vim-scripts/SQLUtilities"
-Bundle "vim-scripts/dbext.vim"
-let g:dbext_default_profile = 'mySQL'
-Bundle 'danro/rename.vim'
-Bundle 'tpope/vim-surround'
-Bundle "b4winckler/vim-objc"
-let c_no_curly_error = 1
-Bundle "vim-json-bundle"
-Bundle 'neilagabriel/vim-geeknote'
-let g:GeeknoteFormat="markdown"
-Bundle 'joonty/vdebug.git'
-let g:vdebug_options= {
-            \    "port" : 9999,
-            \    "server" : 'localhost',
-            \    "timeout" : 20,
-            \    "on_close" : 'detach',
-            \    "break_on_open" : 1,
-            \    "ide_key" : '',
-            \    "path_maps" : {},
-            \    "debug_window_level" : 0,
-            \    "debug_file_level" : 0,
-            \    "debug_file" : "",
-            \    "watch_window_style" : 'expanded',
-            \    "marker_default" : '⬦',
-            \    "marker_closed_tree" : '▸',
-            \    "marker_open_tree" : '▾'
-            \}
-
+Plugin 'alvan/vim-phpmanual'
+Plugin 'eshion/vim-sync'
+autocmd BufWritePost * :call SyncUploadFile()
+Plugin 'vim-scripts/BufOnly.vim'
+Plugin 'vim-scripts/AnsiEsc.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'fatih/vim-go'
+Plugin 'vim-airline/vim-airline'
+set laststatus=2
+call vundle#end()            " required
 "}
-
-"放置在Bundle的设置后，防止意外BUG
-filetype plugin indent on
+filetype plugin indent on    " required
 syntax on
 "set synmaxcol=128
-"set ttyfast " u got a fast terminal
-"set ttyscroll=3
-"set lazyredraw " to avoid scrolling problems
-set tags=./tags,tags
-""source ~/.vim_runtime/my_configs.vim
+set ttyfast " u got a fast terminal
+set ttyscroll=3
+set lazyredraw " to avoid scrolling problems
+"set tags=./tags,tags
+set tags=~/alan/tags,tags
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 autocmd BufNewFile *.c 0r ~/.vim/skeleton.c
 autocmd bufnewfile *.c exe "1," . 10 . "g/File Name :.*/s//File Name : ".expand("%")
 autocmd bufnewfile *.c exe "1," . 10 . "g/Creation Date :.*/s//Creation Date : " .strftime("%Y-%m-%d")
@@ -310,3 +301,8 @@ autocmd Bufwritepre,filewritepre *.c execute "normal ma"
 autocmd Bufwritepre,filewritepre *.c exe "1," . 10 . "g/Last Modified :.*/s/Last Modified :.*/Last Modified : " .strftime("%c")
 autocmd bufwritepost,filewritepost *.c execute "normal `a"
 autocmd Bufread,BufNewFile *.m setfiletype=objc
+let @t='ititle:jj'
+let @j='ititle:jj:5f2vlllllllllygg$pa-jj:3v$hygg$p0f2y$:Rename 0.txt'
+let @k='ititle:jj:5vlllllllllygg$pa-jj:3v$hygg$p0f2y$:Rename 0.txt'
+let @i='i{{}}'
+let @d='g/^[\s ]*\n[\s ]*$/d'
