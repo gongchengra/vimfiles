@@ -55,7 +55,6 @@ set encoding=utf-8
 set autoread
 au CursorHold * checktime
 
-"set laststatus=2
 set number                                    "显示行号
 ""set undofile                                  "无限undo
 "set nowrap                                    "禁止自动换行
@@ -139,30 +138,36 @@ nmap ls :ls<cr>
 "使用tab键来代替%进行匹配跳转
 nmap <tab> %
 vnoremap <tab> %
+
 "spell setting
 "nmap <leader>s :set spell!
-nmap <leader>f 1z=
+"nmap <leader>f 1z=
+
 "折叠html标签 ,fold tag
 nmap <leader>ft vatzf
+
 "使用,v来选择刚刚复制的段落，这样可以用来缩进
 nmap <leader>v v`]
 
 "使用,w来垂直分割窗口，这样可以同时查看多个文件,如果想水平分割则<c-w>s
-nmap <leader>w <c-w>v<c-w>l
-nmap <leader>wc <c-w>c
-nmap <leader>ww <c-w>w
+nmap <leader>s <c-w>v<c-w>l
+nmap <leader>sc <c-w>c
+nmap <leader>sw <c-w>w
 
 "tab切换
 "nmap <leader>t gt
 "nmap <leader>r gT
+
 "使用<leader>空格来取消搜索高亮
 nmap <leader><space> :noh<cr>
 
 "html中的js加注释 取消注释
 nmap <leader>h I//jj
 nmap <leader>ch ^xx
+
 "切换到当前目录
 nmap <leader>cd :execute "cd" expand("%:h")<CR>:pwd<CR>
+
 "搜索替换
 "nmap <leader>s :,s///c
 
@@ -174,15 +179,18 @@ nmap <leader>pp :set nopaste<CR>
 nmap <leader>fj :set ft=javascript<CR>
 nmap <leader>fc :set ft=css<CR>
 nmap <leader>fx :set ft=xml<CR>
-nmap <leader>fm :set ft=mako<CR>
 
 "my settings"
-nmap <S-Space> <PageUp>
-nmap <Space> <PageDown>
-
-nmap <leader>be :exec '!'.getline('.')<CR>
-nmap <leader>ds :g/^\s*\n\s*$/d<CR>
-nmap <leader>dj :g/jpg/d<CR>
+"nmap <C-Space> <PageUp>
+"nmap <Space> <PageDown>
+"nmap <leader>be :exec '!'.getline('.')<CR>
+"nmap <leader>ds :g/^\s*\n\s*$/d<CR>
+"nmap <leader>dj :g/jpg/d<CR>
+nmap <leader>d :g/^[\s ]*\n[\s ]*$/d<cr>
+nmap <leader>e :edit!<cr>
+nmap <leader>f :FixWhitespace<cr>
+nmap <leader>q :q<cr>
+nmap <leader>w :w<cr>
 cmap w!! w !sudo tee > /dev/null %
 "设置隐藏gvim的菜单和工具栏 F2切换
 set guioptions-=m
@@ -305,4 +313,3 @@ let @t='ititle:jj'
 let @j='ititle:jj:5f2vlllllllllygg$pa-jj:3v$hygg$p0f2y$:Rename 0.txt'
 let @k='ititle:jj:5vlllllllllygg$pa-jj:3v$hygg$p0f2y$:Rename 0.txt'
 let @i='i{{}}'
-let @d='g/^[\s ]*\n[\s ]*$/d'
