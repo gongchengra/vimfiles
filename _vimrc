@@ -95,18 +95,18 @@ set cm=blowfish
 
 "tabpage settings
 ca e tabe
-nnoremap th  :tabfirst<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap tt  :tabedit<Space>
-nnoremap tn  :tabnext<Space>
-nnoremap tm  :tabm<Space>
-nnoremap td  :tabclose<CR>
-nnoremap tc  :tabnew<CR>
-"nnoremap <C-S-tab> :tabprevious<CR>
-"nnoremap <C-tab>   :tabnext<CR>
-"nnoremap <C-t>     :tabnew<CR>
+nmap th  :tabfirst<CR>
+nmap tj  :tabnext<CR>
+nmap tk  :tabprev<CR>
+nmap tl  :tablast<CR>
+nmap tt  :tabedit<Space>
+nmap tn  :tabnext<Space>
+nmap tm  :tabm<Space>
+nmap td  :tabclose<CR>
+nmap tc  :tabnew<CR>
+"nmap <C-S-tab> :tabprevious<CR>
+"nmap <C-tab>   :tabnext<CR>
+"nmap <C-t>     :tabnew<CR>
 "inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 "inoremap <C-tab>   <Esc>:tabnext<CR>i
 "inoremap <C-t>     <Esc>:tabnew<CR>
@@ -124,39 +124,39 @@ imap jj <esc>
 
 inoremap <C-R> <C-G>u<C-R>
 inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
+nmap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 "修改vim的正则表达
-nnoremap / /\v
+nmap / /\v
 vnoremap / /\v
 
-nnoremap bn :bn<cr>
-nnoremap bp :bp<cr>
-nnoremap bd :bd<cr>
-nnoremap ls :ls<cr>
+nmap bn :bn<cr>
+nmap bp :bp<cr>
+nmap bd :bd<cr>
+nmap ls :ls<cr>
 
 "使用tab键来代替%进行匹配跳转
-nnoremap <tab> %
+nmap <tab> %
 vnoremap <tab> %
 "spell setting
-"nnoremap <leader>s :set spell!
-nnoremap <leader>f 1z=
+"nmap <leader>s :set spell!
+nmap <leader>f 1z=
 "折叠html标签 ,fold tag
-nnoremap <leader>ft vatzf
+nmap <leader>ft vatzf
 "使用,v来选择刚刚复制的段落，这样可以用来缩进
-nnoremap <leader>v v`]
+nmap <leader>v v`]
 
 "使用,w来垂直分割窗口，这样可以同时查看多个文件,如果想水平分割则<c-w>s
-nnoremap <leader>w <c-w>v<c-w>l
-nnoremap <leader>wc <c-w>c
-nnoremap <leader>ww <c-w>w
+nmap <leader>w <c-w>v<c-w>l
+nmap <leader>wc <c-w>c
+nmap <leader>ww <c-w>w
 
 "tab切换
-"nnoremap <leader>t gt
-"nnoremap <leader>r gT
+"nmap <leader>t gt
+"nmap <leader>r gT
 "使用<leader>空格来取消搜索高亮
-nnoremap <leader><space> :noh<cr>
+nmap <leader><space> :noh<cr>
 
 "html中的js加注释 取消注释
 nmap <leader>h I//jj
