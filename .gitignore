@@ -8,3 +8,6 @@ my_plugins/
 my_configs.vim
 tags
 .DS_Store
+bundle/
+doc/
+sessions/
