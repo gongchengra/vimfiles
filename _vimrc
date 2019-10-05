@@ -120,6 +120,7 @@ inoremap <c-h> <left>
 "修改leader键为逗号
 let mapleader=","
 imap jj <esc>
+xnoremap <leader>p :w !python<cr>
 
 inoremap <C-R> <C-G>u<C-R>
 inoremap <F1> <ESC>
@@ -290,6 +291,10 @@ Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'fatih/vim-go'
 Plugin 'vim-airline/vim-airline'
+Plugin 'eclim'
+nnoremap <silent> <buffer> <leader>i :JavaImport<cr>
+nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
+nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
 set laststatus=2
 call vundle#end()            " required
 "}
@@ -312,4 +317,5 @@ autocmd Bufread,BufNewFile *.m setfiletype=objc
 let @t='ititle:jj'
 let @j='ititle:jj:5f2vlllllllllygg$pa-jj:3v$hygg$p0f2y$:Rename 0.txt'
 let @k='ititle:jj:5vlllllllllygg$pa-jj:3v$hygg$p0f2y$:Rename 0.txt'
-let @i='i{{}}'
+"let @u='i# -*- coding: utf-8 -*\n'
+let @u='i# -*- coding: utf-8 -*q�kb'
