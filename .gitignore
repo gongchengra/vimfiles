@@ -2,3 +2,5 @@ bundle/
 doc/
 plugin/
 sessions/
+view/
+.netrwhist

@@ -105,8 +105,8 @@ endfunction
 call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
-Plug 'tpope/vim-sensible'
-Plug 'junegunn/seoul256.vim'
+"Plug 'tpope/vim-sensible'
+"Plug 'junegunn/seoul256.vim'
 
 Plug 'vim-scripts/ctrlp.vim'
 let g:ctrlp_switch_buffer = 'Et'
@@ -122,9 +122,9 @@ let g:use_emmet_complete_tag = 1
 "let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 Plug 'vim-scripts/trailing-whitespace'
 "displaying indent levels
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_guide_size=1
+"Plug 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_enable_on_vim_startup=1
+"let g:indent_guides_guide_size=1
 Plug 'vim-scripts/EasyMotion'
 let g:EasyMotion_leader_key = '<Leader><Leader>'
 "let g:EasyMotion_keys = '1234567890'
@@ -141,10 +141,10 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.$','\~$']
 let NERDTreeShowLineNumbers=1
 let NERDTreeWinPos=1
-Plug 'jistr/vim-nerdtree-tabs'
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
-Plug 'vim-scripts/xml.vim'
-let g:xml_syntax_folding = 1
+"Plug 'jistr/vim-nerdtree-tabs'
+"map <Leader>n <plug>NERDTreeTabsToggle<CR>
+"Plug 'vim-scripts/xml.vim'
+"let g:xml_syntax_folding = 1
 Plug 'vim-scripts/SessionMgr'
 "let g:SessionMgr_AutoManage = 0
 let g:SessionMgr_AutoManage = 1
@@ -153,10 +153,10 @@ let g:SessionMgr_Dir = "/tmp"
 Plug 'vim-scripts/LargeFile'
 Plug 'vim-scripts/dbext.vim'
 Plug 'danro/rename.vim'
-Plug 'alvan/vim-phpmanual'
+"Plug 'alvan/vim-phpmanual'
 Plug 'vim-scripts/BufOnly.vim'
-Plug 'vim-scripts/AnsiEsc.vim'
-Plug 'mileszs/ack.vim'
+"Plug 'vim-scripts/AnsiEsc.vim'
+"Plug 'mileszs/ack.vim'
 Plug 'fatih/vim-go'
 Plug 'vim-airline/vim-airline'
 set laststatus=2
@@ -166,6 +166,9 @@ set laststatus=2
 "let g:UltiSnipsJumpForwardTrigger="<c-b>"
 "let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 Plug 'chr4/nginx.vim'
+" List ends here. Plugins become visible to Vim after this call.
+Plug 'https://github.com/ervandew/supertab.git'
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 nnoremap <silent> <Leader>g :Rg<CR>
