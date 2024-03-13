@@ -175,7 +175,7 @@ Plug 'junegunn/fzf.vim'
 nnoremap <silent> <Leader>g :Rg<CR>
 nnoremap <silent> <Leader>z :Files<CR>
 nnoremap <leader>jt :w !python3 -mjson.tool %<CR>
-
+Plug 'preservim/vimux'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
