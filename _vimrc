@@ -157,7 +157,7 @@ Plug 'danro/rename.vim'
 Plug 'vim-scripts/BufOnly.vim'
 "Plug 'vim-scripts/AnsiEsc.vim'
 "Plug 'mileszs/ack.vim'
-Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 Plug 'vim-airline/vim-airline'
 set laststatus=2
 "Plug 'honza/vim-snippets'
