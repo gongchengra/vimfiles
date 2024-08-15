@@ -179,6 +179,7 @@ Plug 'preservim/vimux'
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vi :VimuxInspectRunner<CR>
+"Plug 'github/copilot.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
